@@ -7,9 +7,9 @@ import Content from './Component/Content.jsx'
 
 function App() {
 	// const [isLogin, toLogin] = useState(false)
-	const [Page, toPage] = useState('Dashboard')
+	const [Page, setPage] = useState('Dashboard')
 
-	const onPage = ID => toPage(ID)
+	const toPage = ID => setPage(ID)
 	// useEffect(() => {}, [])
 
 	return (
@@ -17,8 +17,8 @@ function App() {
 			{/* <Login /> */}
 			{/* {Login === true && ( */}
 				<>
-					<Sidebar onItem={onPage} />
-					<Content newPage={Page} />
+					<Sidebar Page={Page} onUpdate={toPage} />
+					<Content CurrentPage={Page} />
 				</>
 			{/* )} */}
 		</div>
